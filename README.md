@@ -1,6 +1,6 @@
 # GRPC Services and Registry
 
-This application contains commands to run a registry server, two different service nodes, and two different clients.  
+This repo contains commands to run a registry server, two different service nodes, and two different clients.  
 The clients will be able to access the the services of their respective nodes.  
 One of them will communicate with the registry server in order to pull responses from the service node.
 The other will communicate directly with the service node to access their services.
