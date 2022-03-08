@@ -1,0 +1,54 @@
+/*
+This service simulates interactions with a virtual cat.  The user has different ways of interaction with the cat and receiving a response from the cat.
+
+Pet - "Pets" the cat
+GiveTreat - Offer a treat to the cat
+Peek - Check out what the cat is doing
+
+*/
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "service";
+option java_outer_classname = "KittyProto";
+
+package services;
+
+service Kitty {
+
+    rpc pet (None) returns (PetResp) {}
+    rpc getName (None) returns (Name) {}
+    rpc giveTreat (TreatReq) returns (TreatResp) {}
+    rpc peek (None) returns (PeekResp) {} 
+    rpc call (None) returns (CallResp) {}
+}
+
+message None{
+
+}
+
+message Name {
+    string name = 1; //returns current cat's name
+    string error = 2;
+}
+
+message PetResp {
+    string response = 1; // Returns how the cat reacted to your touch
+}
+
+message TreatReq {
+    int32 quality = 1; // Treat-quality will affect cat's reaction
+}
+message TreatResp { 
+    // Returns how the cat reacted to your treat 
+    string response = 1;
+}
+
+message PeekResp {
+    string response = 1; // Returns what the cat is currently doing
+}
+
+message CallResp {
+    string response = 1; // how the cat responded to the call
+}
+
